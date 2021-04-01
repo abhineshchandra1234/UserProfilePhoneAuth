@@ -15,6 +15,7 @@ import com.example.userprofilephoneauth.databinding.ActivityMainBinding
 import com.example.userprofilephoneauth.databinding.FragmentHomeScreenBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
+import kotlinx.android.synthetic.main.fragment_home_screen.*
 import java.util.concurrent.TimeUnit
 
 
@@ -26,19 +27,20 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = FragmentHomeScreenBinding.inflate(layoutInflater)	//replace setContentView(R.layout.activity_main) with these two lines
+        binding = FragmentHomeScreenBinding.bind(view)	//replace setContentView(R.layout.activity_main) with these two lines
 
         auth=FirebaseAuth.getInstance()
         var currentUser = auth.currentUser
         if(currentUser != null) {
 //            startActivity(Intent(applicationContext, HomeActivity::class.java))
 //            finish()
-            currentUser.phoneNumber
-            Log.d("TAG", "current user no is ${currentUser.phoneNumber}")
+            //currentUser.phoneNumber
+            //Log.d("TAG", "current user no is ${currentUser.phoneNumber}")
             findNavController().navigate(R.id.action_homeScreen_to_newUser)
         }
 
         binding.btnSendOtp.setOnClickListener {
+            Log.d("Main", "btn send is clicked")
             login()
         }
 
@@ -56,7 +58,8 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-                Toast.makeText(context, "Failed", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Failed $e", Toast.LENGTH_LONG).show()
+                Log.d("Main", "Failed $e")
             }
 
             override fun onCodeSent(
