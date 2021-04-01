@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666269449439",
+    "project_id": "userprofilephoneauth",
+    "storage_bucket": "userprofilephoneauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666269449439:android:9170f2e32ad42d56977d6a",
+        "android_client_info": {
+          "package_name": "com.example.userprofilephoneauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666269449439-364d7g10upftk8b7q0vfp543dirqh80r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl65BuEJL7MLXFh75Kx9ghw8wZZQ7ZrlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666269449439-364d7g10upftk8b7q0vfp543dirqh80r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
