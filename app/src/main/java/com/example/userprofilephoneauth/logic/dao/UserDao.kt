@@ -10,9 +10,12 @@ import com.example.phoneauthentication.data.models.User
 @Dao
 interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addUser(user: User)
 
     @Query("SELECT * FROM user_table")
     fun getUserDetails(): LiveData<List<User>>
+
+//    @Query("Select * from user_table where user_number = :number")
+//    fun checkNumber(number: String): LiveData<Boolean>
 }

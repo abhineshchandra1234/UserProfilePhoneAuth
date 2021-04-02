@@ -9,12 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.phoneauthentication.data.models.User
 import com.example.phoneauthentication.viewModels.UserViewModel
 import com.example.userprofilephoneauth.R
 import com.example.userprofilephoneauth.databinding.FragmentNewUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class NewUser : Fragment(R.layout.fragment_new_user) {
     private lateinit var binding: FragmentNewUserBinding
@@ -33,6 +36,14 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
         binding.btnRegister.setOnClickListener {
             registerNewUser()
         }
+
+        checkNumberStatus()
+    }
+
+    private fun checkNumberStatus() {
+        userViewModel.getUserDetails.observe(viewLifecycleOwner, {
+            Log.d("Main", "list is ${it.toString()}")
+        })
     }
 
     private fun registerNewUser() {
