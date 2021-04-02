@@ -17,4 +17,8 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.checkNumber(number)
     }
 
+    fun getNumberDetails(number: String): List<User> {
+        return userDao.getNumberDetails(number)
+    }
+
 }

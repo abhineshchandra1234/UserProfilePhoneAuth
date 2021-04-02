@@ -18,4 +18,7 @@ interface UserDao {
 
     @Query("Select * from user_table where user_number = :number")
     fun checkNumber(number: String): Boolean
+
+    @Query("Select * from user_table where user_number = :number")
+    fun getNumberDetails(number: String): List<User>
 }

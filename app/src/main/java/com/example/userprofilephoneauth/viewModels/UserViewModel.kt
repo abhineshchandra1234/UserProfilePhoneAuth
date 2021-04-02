@@ -30,4 +30,8 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     fun checkNumber(number: String) : Boolean {
         return repository.checkNumber(number)
     }
+
+    fun getNumberDetails(number: String): List<User> {
+        return repository.getNumberDetails(number)
+    }
 }
