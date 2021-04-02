@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvUserName"
+                android:id="@+id/tvUserNameUserDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvUserEmail"
+                android:id="@+id/tvUserEmailUserDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="120dp"
@@ -50,7 +50,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnLogoutUserDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="112dp"

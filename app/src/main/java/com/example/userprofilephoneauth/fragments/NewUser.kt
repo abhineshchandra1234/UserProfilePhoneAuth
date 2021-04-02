@@ -27,6 +27,7 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
     private lateinit var userViewModel: UserViewModel
     private lateinit var userList : List<User>
     private lateinit var number : String
+    var userExist = "false"
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,12 +57,19 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
     }
 
     private fun checkUserStatus() {
+        Log.d("Main", "checkUserStatus is called")
         GlobalScope.launch {
             if (userViewModel.checkNumber(number)) {
-                findNavController().navigate(R.id.action_newUser_to_userDetails)
+                userExist = "true"
             }
         }
+        if (userExist == "true") {
+            Log.d("Main", "userExist value is $userExist")
+            findNavController().navigate(R.id.action_newUser_to_userDetails)
+        }
     }
+
+
 
     private fun parseList() {
 
