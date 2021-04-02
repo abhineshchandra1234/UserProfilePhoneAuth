@@ -30,7 +30,7 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         binding = FragmentHomeScreenBinding.bind(view)	//replace setContentView(R.layout.activity_main) with these two lines
 
         auth=FirebaseAuth.getInstance()
-        var currentUser = auth.currentUser
+        val currentUser = auth.currentUser
         if(currentUser != null) {
 //            startActivity(Intent(applicationContext, HomeActivity::class.java))
 //            finish()
