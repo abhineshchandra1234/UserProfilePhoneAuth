@@ -39,9 +39,19 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
 
         binding.btnLogoutNewUser.setOnClickListener {
             auth.signOut()
+            findNavController().navigate(R.id.action_newUser_to_homeScreen)
         }
-
+        addUser()
         checkNumberStatus()
+
+        parselist()
+    }
+
+    private fun addUser() {
+        for (i in 1..5) {
+            var user = User("000$i","employee","email")
+            userViewModel.addUser(user)
+        }
     }
 
     private fun checkNumberStatus() {

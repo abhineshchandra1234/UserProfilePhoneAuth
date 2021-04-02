@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_newUser_to_userDetails"
             app:destination="@id/userDetails" />
+        <action
+            android:id="@+id/action_newUser_to_homeScreen"
+            app:destination="@id/homeScreen" />
     </fragment>
     <fragment
         android:id="@+id/userDetails"
