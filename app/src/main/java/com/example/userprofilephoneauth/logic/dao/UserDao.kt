@@ -10,7 +10,7 @@ import com.example.phoneauthentication.data.models.User
 @Dao
 interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
     @Query("SELECT * FROM user_table")
