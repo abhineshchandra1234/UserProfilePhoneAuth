@@ -37,6 +37,10 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
             registerNewUser()
         }
 
+        binding.btnLogoutNewUser.setOnClickListener {
+            auth.signOut()
+        }
+
         checkNumberStatus()
     }
 
