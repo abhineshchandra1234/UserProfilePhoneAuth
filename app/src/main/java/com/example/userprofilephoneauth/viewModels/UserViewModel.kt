@@ -27,9 +27,7 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-//    fun checkNumber(number: String) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//           repository.checkNumber(number)
-//        }
-//    }
+    fun checkNumber(number: String) : Boolean {
+        return repository.checkNumber(number)
+    }
 }

@@ -16,6 +16,6 @@ interface UserDao {
     @Query("SELECT * FROM user_table")
     fun getUserDetails(): LiveData<List<User>>
 
-//    @Query("Select * from user_table where user_number = :number")
-//    fun checkNumber(number: String): LiveData<Boolean>
+    @Query("Select * from user_table where user_number = :number")
+    fun checkNumber(number: String): Boolean
 }

@@ -17,17 +17,21 @@ import com.example.userprofilephoneauth.R
 import com.example.userprofilephoneauth.databinding.FragmentNewUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class NewUser : Fragment(R.layout.fragment_new_user) {
     private lateinit var binding: FragmentNewUserBinding
     lateinit var auth: FirebaseAuth
     private lateinit var userViewModel: UserViewModel
+    private lateinit var userList : List<User>
+    private lateinit var number : String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentNewUserBinding.bind(view)
         auth=FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
+        number = currentUser?.phoneNumber.toString()
         Toast.makeText(context, "phone no is ${currentUser?.phoneNumber}", Toast.LENGTH_SHORT).show()
         Log.d("Main", "current user phone no is ${currentUser?.phoneNumber}")
 
@@ -44,7 +48,11 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
         addUser()
         checkNumberStatus()
 
-        parselist()
+        parseList()
+    }
+
+    private fun parseList() {
+
     }
 
     private fun addUser() {
@@ -55,9 +63,9 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
     }
 
     private fun checkNumberStatus() {
-        userViewModel.getUserDetails.observe(viewLifecycleOwner, {
-            Log.d("Main", "list is ${it.toString()}")
-        })
+        GlobalScope.launch {
+            Log.d("Main", "value is ${userViewModel.checkNumber(number)} ")
+        }
     }
 
     private fun registerNewUser() {
