@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.properties.Delegates
 
 class NewUser : Fragment(R.layout.fragment_new_user) {
     private lateinit var binding: FragmentNewUserBinding
@@ -27,6 +28,7 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
     private lateinit var userList : List<User>
     private lateinit var number : String
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentNewUserBinding.bind(view)
         auth=FirebaseAuth.getInstance()
@@ -34,8 +36,10 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
         number = currentUser?.phoneNumber.toString()
         Toast.makeText(context, "phone no is ${currentUser?.phoneNumber}", Toast.LENGTH_SHORT).show()
         Log.d("Main", "current user phone no is ${currentUser?.phoneNumber}")
-
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        checkUserStatus()
+
+
 
         binding.btnRegister.setOnClickListener {
             registerNewUser()
@@ -45,22 +49,30 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
             auth.signOut()
             findNavController().navigate(R.id.action_newUser_to_homeScreen)
         }
-        addUser()
-        checkNumberStatus()
+//        addUser()
+//        checkNumberStatus()
 
-        parseList()
+//        parseList()
+    }
+
+    private fun checkUserStatus() {
+        GlobalScope.launch {
+            if (userViewModel.checkNumber(number)) {
+                findNavController().navigate(R.id.action_newUser_to_userDetails)
+            }
+        }
     }
 
     private fun parseList() {
 
     }
 
-    private fun addUser() {
-        for (i in 1..5) {
-            var user = User("000$i","employee","email")
-            userViewModel.addUser(user)
-        }
-    }
+//    private fun addUser() {
+//        for (i in 1..5) {
+//            var user = User("000$i","employee","email")
+//            userViewModel.addUser(user)
+//        }
+//    }
 
     private fun checkNumberStatus() {
         GlobalScope.launch {
