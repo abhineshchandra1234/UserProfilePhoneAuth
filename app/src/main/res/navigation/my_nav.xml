@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_newUser_to_homeScreen"
             app:destination="@id/homeScreen" />
+        <action
+            android:id="@+id/action_newUser_to_loginScreen"
+            app:destination="@id/loginScreen" />
     </fragment>
     <fragment
         android:id="@+id/userDetails"
@@ -37,5 +40,17 @@
         <action
             android:id="@+id/action_userDetails_to_homeScreen"
             app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.example.userprofilephoneauth.LoginScreen"
+        android:label="fragment_login_screen"
+        tools:layout="@layout/fragment_login_screen" >
+        <action
+            android:id="@+id/action_loginScreen_to_userDetails"
+            app:destination="@id/userDetails" />
+        <action
+            android:id="@+id/action_loginScreen_to_newUser"
+            app:destination="@id/newUser" />
     </fragment>
 </navigation>
