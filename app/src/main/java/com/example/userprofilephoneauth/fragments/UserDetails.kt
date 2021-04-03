@@ -41,6 +41,7 @@ class UserDetails : Fragment(R.layout.fragment_user_details) {
             val a = userViewModel.getNumberDetails(number)
             binding.tvUserNameUserDetails.text = a.get(0).user_name
             binding.tvUserEmailUserDetails.text = a.get(0).user_email
+            binding.tvUserNumberlUserDetails.text = a.get(0).user_number
         }
     }
 }
