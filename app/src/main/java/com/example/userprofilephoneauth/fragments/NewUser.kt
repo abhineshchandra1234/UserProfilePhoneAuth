@@ -44,7 +44,10 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
         Log.d("Main", "current user phone no is ${currentUser?.phoneNumber}")
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         viewModel = ViewModelProvider(this).get(TestViewModel::class.java)
-        checkUserStatus()
+
+        if(currentUser != null) {
+            checkUserStatus()
+        }
 
 
 
