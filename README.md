@@ -9,4 +9,15 @@
 - it will store user data locally
 
 ## Concepts Used
-- 
+- Navigation Component
+- Fragments
+- Coroutines
+- ViewModel && LiveData
+- Room
+- ViewBinding
+- Firebase
+
+## Learning
+- best room practices combined with MVVM
+- best project for room with MVVM
+- firebase phone authentication
