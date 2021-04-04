@@ -38,6 +38,6 @@ class UserDetails : Fragment(R.layout.fragment_user_details) {
     private fun checkNumberDetails() {
             binding.tvUserNameUserDetails.setText(args.currentUser.user_name)
             binding.tvUserEmailUserDetails.setText(args.currentUser.user_email)
-            binding.tvUserNumberlUserDetails.setText(args.currentUser.user_name)
+            binding.tvUserNumberlUserDetails.setText(args.currentUser.user_number)
     }
 }
