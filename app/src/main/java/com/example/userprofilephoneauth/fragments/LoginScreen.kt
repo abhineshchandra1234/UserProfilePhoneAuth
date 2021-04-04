@@ -46,7 +46,9 @@ class LoginScreen : Fragment(R.layout.fragment_login_screen) {
             job.cancel()
 
             if ((number == a.get(0).user_number) && (email == a.get(0).user_email)) {
-                findNavController().navigate(R.id.action_loginScreen_to_userDetails)
+                val user = User(a.get(0).user_number,a.get(0).user_name,a.get(0).user_email)
+                val action = LoginScreenDirections.actionLoginScreenToUserDetails(user)
+                findNavController().navigate(action)
             } else {
                 Toast.makeText(context, "user is not valid", Toast.LENGTH_SHORT).show()
             }

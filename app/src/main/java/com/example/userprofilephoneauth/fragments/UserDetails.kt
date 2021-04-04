@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.phoneauthentication.viewModels.UserViewModel
 import com.example.userprofilephoneauth.R
 import com.example.userprofilephoneauth.databinding.FragmentUserDetailsBinding
@@ -20,7 +21,7 @@ class UserDetails : Fragment(R.layout.fragment_user_details) {
     lateinit var auth: FirebaseAuth
     private lateinit var userViewModel: UserViewModel
     private lateinit var number : String
-
+    private val args by navArgs<UserDetailsArgs>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentUserDetailsBinding.bind(view)
         auth = FirebaseAuth.getInstance()
@@ -35,8 +36,8 @@ class UserDetails : Fragment(R.layout.fragment_user_details) {
     }
 
     private fun checkNumberDetails() {
-//            binding.tvUserNameUserDetails.text = a.get(0).user_name
-//            binding.tvUserEmailUserDetails.text = a.get(0).user_email
-//            binding.tvUserNumberlUserDetails.text = a.get(0).user_number
+            binding.tvUserNameUserDetails.setText(args.currentUser.user_name)
+            binding.tvUserEmailUserDetails.setText(args.currentUser.user_email)
+            binding.tvUserNumberlUserDetails.setText(args.currentUser.user_name)
     }
 }

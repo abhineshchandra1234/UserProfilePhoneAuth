@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_userDetails_to_homeScreen"
             app:destination="@id/homeScreen" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.phoneauthentication.data.models.User" />
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
