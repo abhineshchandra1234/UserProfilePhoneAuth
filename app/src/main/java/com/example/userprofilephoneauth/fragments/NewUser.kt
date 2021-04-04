@@ -53,6 +53,10 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
             findNavController().navigate(R.id.action_newUser_to_homeScreen)
         }
 
+        binding.btnLoginNewUser.setOnClickListener {
+            findNavController().navigate(R.id.action_newUser_to_loginScreen)
+        }
+
     }
 
 
@@ -75,11 +79,9 @@ class NewUser : Fragment(R.layout.fragment_new_user) {
         val number = binding.etEnterNumber.text.toString().trim()
         if (!(name.isEmpty() || email.isEmpty())) {
             val user = User(number,name,email)
-            if (user != null) {
-                userViewModel.addUser(user)
-            }
+            userViewModel.addUser(user)
             Toast.makeText(context, "User added successfully", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_newUser_to_userDetails)
+            findNavController().navigate(R.id.action_newUser_to_loginScreen)
         } else {
             Toast.makeText(context, "Please fill all the fields", Toast.LENGTH_SHORT).show()
         }

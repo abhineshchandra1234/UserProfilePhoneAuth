@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.example.userprofilephoneauth.LoginScreen"
+        android:name="com.example.userprofilephoneauth.fragments.LoginScreen"
         android:label="fragment_login_screen"
         tools:layout="@layout/fragment_login_screen" >
         <action

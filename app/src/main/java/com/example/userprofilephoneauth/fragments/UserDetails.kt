@@ -35,13 +35,8 @@ class UserDetails : Fragment(R.layout.fragment_user_details) {
     }
 
     private fun checkNumberDetails() {
-        val currentUser = auth.currentUser
-        number = currentUser?.phoneNumber.toString()
-        GlobalScope.launch {
-            val a = userViewModel.getNumberDetails(number)
-            binding.tvUserNameUserDetails.text = a.get(0).user_name
-            binding.tvUserEmailUserDetails.text = a.get(0).user_email
-            binding.tvUserNumberlUserDetails.text = a.get(0).user_number
-        }
+//            binding.tvUserNameUserDetails.text = a.get(0).user_name
+//            binding.tvUserEmailUserDetails.text = a.get(0).user_email
+//            binding.tvUserNumberlUserDetails.text = a.get(0).user_number
     }
 }

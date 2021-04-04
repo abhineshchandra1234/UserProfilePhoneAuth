@@ -1,15 +1,14 @@
-package com.example.userprofilephoneauth
+package com.example.userprofilephoneauth.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.phoneauthentication.data.models.User
 import com.example.phoneauthentication.viewModels.UserViewModel
+import com.example.userprofilephoneauth.R
 import com.example.userprofilephoneauth.databinding.FragmentLoginScreenBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
