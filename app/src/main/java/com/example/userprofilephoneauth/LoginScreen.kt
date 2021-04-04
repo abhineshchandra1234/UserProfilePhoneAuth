@@ -29,6 +29,10 @@ class LoginScreen : Fragment(R.layout.fragment_login_screen) {
         binding.btnLogin.setOnClickListener {
             userValidation()
         }
+
+        binding.btnRegisterLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginScreen_to_newUser)
+        }
     }
 
     private fun userValidation() {
