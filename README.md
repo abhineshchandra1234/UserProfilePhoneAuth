@@ -16,6 +16,7 @@
 - Room
 - ViewBinding
 - Firebase
+- Single Activity Architecture
 
 ## Learning
 - best room practices combined with MVVM
